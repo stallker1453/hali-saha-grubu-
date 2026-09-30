@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halı Saha Grubu</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar"><div class="brand"><span class="ball">⚽</span><b>Halı Saha Grubu</b></div></header>
+<main class="wrap">
+<section class="hero card dark">
+  <div class="eyebrow">BU HAFTAKİ MAÇ</div>
+  <h1>Kadroya yazıl</h1>
+  <p>Şifre yok, üyelik yok. İsmini yaz, sıranı kap.</p>
+  <button class="primary" onclick="openSignup()">MAÇA YAZIL</button>
+  <button class="inputlike" onclick="scrollToPlayers()">İsim seç / oyuncu ekle</button>
+</section>
+
+<section class="card roster">
+  <div class="row between"><h2>Bu Haftaki Kadro</h2><b id="count">0 / 14</b></div>
+  <div class="progress"><span id="progress"></span></div>
+  <div class="stats">
+    <div><strong id="whiteCount">0</strong><span>Beyaz Takım</span></div>
+    <div><strong id="blackCount">0</strong><span>Siyah Takım</span></div>
+    <div><strong id="benchCount">0</strong><span>Yedek</span></div>
+  </div>
+</section>
+
+<section class="teams">
+  <div class="team light card"><h3>👕 Beyaz Takım <small id="whiteLabel">0/7</small></h3><ol id="whiteList"></ol></div>
+  <div class="team dark card"><h3>👕 Siyah Takım <small id="blackLabel">0/7</small></h3><ol id="blackList"></ol></div>
+</section>
+
+<section class="card">
+  <div class="row between"><h2>As Kadro</h2><span class="muted">Takım · Durum</span></div>
+  <div id="signupList"></div>
+</section>
+
+<section class="card" id="playersSection">
+  <div class="row between"><h2>Oyuncular</h2><span class="muted">Kendi kaydını yönet</span></div>
+  <div class="addgrid">
+    <input id="newName" placeholder="Ad Soyad">
+    <input id="newPin" inputmode="numeric" maxlength="4" placeholder="4 haneli PIN">
+    <button class="primary" onclick="addPlayer()">Oyuncu Ekle</button>
+  </div>
+  <div id="players"></div>
+</section>
+
+<section class="card">
+  <div class="row between"><h2>Yönetici</h2><span class="muted">Maç işlemleri</span></div>
+  <button class="danger" onclick="adminReset()">Bu haftayı sıfırla</button>
+</section>
+</main>
+
+<div class="modal hidden" id="modal">
+  <div class="modalbox">
+    <button class="close" onclick="closeModal()">×</button>
+    <h2>Maça yazıl</h2>
+    <p>Oyuncunu seç. Daha önce oluşturmadıysan aşağıdan ekleyebilirsin.</p>
+    <select id="playerSelect"></select>
+    <div class="actions"><button class="primary" onclick="signup()">MAÇA YAZIL</button><button class="ghost" onclick="closeModal()">Vazgeç</button></div>
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
